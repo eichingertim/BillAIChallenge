@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Kassenzettel KI</title>
+        <link href="mainStyle.css" rel="stylesheet">
+    </head>
+    <body>
+        <header class="app-bar promote-layer paper-toolbar paper-shadow">
+                <div class="app-bar-container paper-toolbar">
+                    <h1 class="logo">Kassenzettel KI</h1>
+                    <button class="log_reg" onclick="openLoginDialog()">Login</button>
+                    <button class="log_reg" onclick="openRegisterDialog()">Registrieren</button>
+                </div>
+        </header>
+        <div class="input_layout_div">
+                <form class="search-form">
+                        <input type="search" id="entry_input" placeholder="Eintrag hinzuf&#252gen...." class="search-input">
+                        <button type="button" id="btn_add" onclick="addEntry()" class="search-button">
+                            <svg class="submit-button">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#add"></use>
+                            </svg>
+                        </button>
+                </form>
+                <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" display="none">
+                    <symbol id="add" viewBox="0 0 32 32">
+                            <path d="M24 10h-10v-10h-4v10h-10v4h10v10h4v-10h10z"/>
+                    </symbol>
+                </svg>
+                
+        </div>
+        <div class="container">
+            <ul id="list">
+                <li>
+                    1 Liter Milch
+                </li>
+                <li>
+                    2 Äpfel
+                </li>
+            </ul>
+        </div>
+        <button type="button" class="fab" onclick="print()" id="fabPrint">🖨️</button>
+        <script>
+            function addEntry() {
+                var entryString = document.getElementById("entry_input").value;
+            
+                if (entryString == "") {
+                    alert('Du musst etwas eingeben um es hinzufügen zu können');
+                } else {
+                    var newElement = document.createElement("LI");
+                    var text = document.createTextNode(entryString);
+                    newElement.append(text);
+                    document.getElementById("list").appendChild(newElement);
+                }
+            
+            }
+            //TODO create login-process
+            function openLoginDialog() {
+
+            }
+            
+            //TODO create login-process
+            function openRegisterDialog() {
+
+            }
+        </script>
+    </body>
+</html>
