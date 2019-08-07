@@ -9,7 +9,7 @@
                 <div class="app-bar-container paper-toolbar">
                     <h1 class="logo">Kassenzettel KI</h1>
                     <button class="log_reg" onclick="document.getElementById('id01').style.display='block'">Login</button>
-                    <button class="log_reg" onclick="openRegisterDialog()">Registrieren</button>
+                    <button class="log_reg" onclick="document.getElementById('id02').style.display='block'">Registrieren</button>
                 </div>
         </header>
         <div class="input_layout_div">
@@ -42,59 +42,64 @@
         <button type="button" class="fab" onclick="print()" id="fabPrint">🖨️</button>
 
         <!--Dialog Login-->
-        <!-- The Modal -->
-<div id="id01" class="modal">
-        <span onclick="document.getElementById('id01').style.display='none'"
-      class="close" title="Close Modal">&times;</span>
-      
-        <!-- Modal Content -->
-        <form class="modal-content animate" action="/action_page.php">
-          <div class="imgcontainer">
-            <img src="img_avatar2.png" alt="Avatar" class="avatar">
-          </div>
-      
-          <div class="container">
-            <label for="uname"><b>Username</b></label>
-            <input type="text" placeholder="Enter Username" name="uname" required>
-      
-            <label for="psw"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="psw" required>
-      
-            <button type="submit">Login</button>
-            <label>
-              <input type="checkbox" checked="checked" name="remember"> Remember me
-            </label>
-          </div>
-      
-          <div class="container" style="background-color:#f1f1f1">
-            <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-            <span class="psw">Forgot <a href="#">password?</a></span>
-          </div>
-        </form>
-      </div>
-        <script>
-            function addEntry() {
-                var entryString = document.getElementById("entry_input").value;
-            
-                if (entryString == "") {
-                    alert('Du musst etwas eingeben um es hinzufügen zu können');
-                } else {
-                    var newElement = document.createElement("LI");
-                    var text = document.createTextNode(entryString);
-                    newElement.append(text);
-                    document.getElementById("list").appendChild(newElement);
-                }
-            
-            }
-            //TODO create login-process
-            function openLoginDialog() {
+        <div id="id01" class="modal">
 
-            }
+            <!-- Modal Content -->
+            <form class="modal-content animate" action="/action_page.php">
+                <div class="imgcontainer">
+                    <span style="margin-left: 40px; font-family: Arial, Helvetica, sans-serif; font-weight: bold; font-size: 22px;">Bei KassenzettelAI anmelden</span>
+                </div>
             
-            //TODO create login-process
-            function openRegisterDialog() {
+                <div class="container_content">
+                    <label style="font-family: Arial, Helvetica, sans-serif" for="uname"><b>E-Mail</b></label>
+                    <input type="text" id="txt_email_login" style="margin-bottom: 30px;" placeholder="E-Mail eingeben" name="uname" required>
+            
+                    <label style="font-family: Arial, Helvetica, sans-serif" for="psw"><b>Passwort</b></label>
+                    <input type="password" id="txt_password_login" placeholder="Passwort eingeben" name="psw" required/>
+                </div>
+            
+                <div class="container" style="height: 40px;">
+                    <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Abbrechen</button>
+                    <button type="button" id="btn_login" class="btnLogIn">Anmelden</button>
+                </div>
+            </form>
+        </div>
 
-            }
-        </script>
+        <!--Dialog Register-->
+        <div id="id02" class="modal">      
+            <!-- Modal Content -->
+            <form class="modal-content animate" action="/action_page.php">
+                <div class="imgcontainer">
+                    <span style="margin-left: 40px; font-family: Arial, Helvetica, sans-serif; font-weight: bold; font-size: 22px;">Bei KassenzettelAI registrieren</span>
+                </div>
+            
+                <div class="container_content">
+                    <label style="font-family: Arial, Helvetica, sans-serif" for="uname"><b>E-Mail</b></label>
+                    <input type="text" id="txt_email_register" placeholder="E-Mail eingeben" name="uname" required>
+            
+                    <label style="font-family: Arial, Helvetica, sans-serif" for="uname"><b>E-Mail bestätigen</b></label>
+                    <input type="text" style="margin-bottom: 30px;" placeholder="E-Mail Bestätigung eingeben" name="uname" required>
+
+                    <label style="font-family: Arial, Helvetica, sans-serif" for="psw"><b>Passwort</b></label>
+                    <input type="password" id="txt_password_register" placeholder="Passwort eingeben" name="psw" required/>
+
+                    <label style="font-family: Arial, Helvetica, sans-serif" for="psw"><b>Passwort bestätigen</b></label>
+                    <input type="password" placeholder="Passwort Bestätigung eingeben" name="psw" required/>
+                </div>
+            
+                <div class="container" style="height: 40px;">
+                    <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Abbrechen</button>
+                    <button type="button" id="btn_register" class="btnLogIn">Registrieren</button>
+                </div>
+            </form>
+        </div>
+        <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-app.js"></script>
+
+        <!-- Add Firebase products that you want to use -->
+        <script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-firestore.js"></script>
+
+        <script src="app.js"></script>
     </body>
 </html>
