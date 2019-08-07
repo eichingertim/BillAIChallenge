@@ -133,6 +133,7 @@ header {
 
   /*Style login register buttons*/
   .log_reg {
+    display: block;
     cursor: pointer;
     color: #ffffff;
     background-color: transparent;
@@ -161,6 +162,7 @@ header {
     border-radius: 2px;
     background-color: #ffffff;
     width: 90%;
+    margin-bottom: 30px;
     overflow: auto;
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.15);
     border-radius: 20px;

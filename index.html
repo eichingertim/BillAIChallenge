@@ -8,8 +8,9 @@
         <header class="app-bar promote-layer paper-toolbar paper-shadow">
                 <div class="app-bar-container paper-toolbar">
                     <h1 class="logo">Kassenzettel KI</h1>
-                    <button class="log_reg" onclick="document.getElementById('id01').style.display='block'">Login</button>
-                    <button class="log_reg" onclick="document.getElementById('id02').style.display='block'">Registrieren</button>
+                    <button class="log_reg" id="btn_open_login" onclick="document.getElementById('id01').style.display='block'">Login</button>
+                    <button class="log_reg" id="btn_open_register" onclick="document.getElementById('id02').style.display='block'">Registrieren</button>
+                    <button style="float: right; display:none;" class="log_reg" id="btn_sign_out">Logout</button>
                 </div>
         </header>
         <div class="input_layout_div">
@@ -29,13 +30,7 @@
                 
         </div>
         <div class="list_container_layout">
-            <ul id="list">
-                <li>
-                    1 Liter Milch
-                </li>
-                <li>
-                    2 Äpfel
-                </li>
+            <ul id="list_items">
             </ul>
         </div>
 
